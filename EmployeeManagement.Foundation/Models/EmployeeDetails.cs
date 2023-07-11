@@ -10,7 +10,7 @@ namespace EmployeeManagement.Foundation.Models
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string DeparmentId { get; set; }
+        public int DeparmentId { get; set; }
         public int age { get; set; }
         public string city { get; set; }
         public string country { get; set; }

@@ -12,7 +12,7 @@ namespace EmployeeManagement.Repositories
             {
                 id = 1,
                 name = "Test",
-                DeparmentId = "cs"
+                DeparmentId = 1
 
             });
         }
