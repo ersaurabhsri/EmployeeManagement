@@ -6,5 +6,6 @@ namespace EmployeeManagement.Foundation.Interfaces
     {
         EmployeeDetails Get(int id);
         IEnumerable<EmployeeDetails> GetAll();
+        void AddEmployee(EmployeeDetails employee);
     }
 }

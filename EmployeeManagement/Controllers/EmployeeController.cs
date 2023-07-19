@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.Foundation.Interfaces;
 using EmployeeManagement.Foundation.Models;
+using EmployeeManagement.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,12 +14,12 @@ namespace EmployeeManagement.Controllers
 
         public EmployeeController(IEmployeeRepository employeeRepository)
         {
-            this.employeeRepository = employeeRepository;
+            this.employeeRepository = employeeRepository
         }
         [HttpGet("values")]
-        public IEnumerable<string> Values()
+        public IEnumerable<EmployeeDetails> Values()
         {
-            return new string[] { "value1", "value2" };
+            return employeeRepository.GetAll(); 
         }
         [HttpGet("GetEmployeeById")]
         public EmployeeDetails GetEmployeeById(int id)
@@ -26,9 +27,10 @@ namespace EmployeeManagement.Controllers
             return employeeRepository.Get(id);
         }
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] EmployeeDetails employee)
         {
-            List<string> list = new List<string>(); 
+            employeeRepository.AddEmployee(employee);
+            return Ok();
         }
     }
 }

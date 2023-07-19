@@ -16,6 +16,12 @@ namespace EmployeeManagement.Repositories
 
             });
         }
+
+        public void AddEmployee(EmployeeDetails employee)
+        {
+            employees.Add(employee);
+        }
+
         public EmployeeDetails Get(int id)
         {
             return employees.FirstOrDefault(x => x.id == id);  
@@ -25,5 +31,6 @@ namespace EmployeeManagement.Repositories
         {
             return employees;
         }
+
     }
 }

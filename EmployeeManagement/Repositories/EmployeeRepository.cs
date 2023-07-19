@@ -12,6 +12,12 @@ namespace EmployeeManagement.Repositories
         {
             this.context = context;
         }
+
+        public void AddEmployee(EmployeeDetails employee)
+        {
+            throw new NotImplementedException();
+        }
+
         public EmployeeDetails Get(int id)
         {
             return context.Employees.FirstOrDefault(x => x.id == id);

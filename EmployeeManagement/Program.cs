@@ -12,11 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //adding something for test purpose
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
-});
+builder.Services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//{
+  //  options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+//});
 
 var app = builder.Build();
 
